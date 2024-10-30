@@ -1,10 +1,12 @@
+import os
 import requests
+import pandas as pd
 import csv
 
 GITHUB_TOKEN = "top_secret_token_do_not_touch"
 HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"}
 
-def get_users_in_basel():
+def get_users_in_mumbai():
     users = []
     query = "location:Mumbai+followers:>50"
     page = 1
@@ -95,7 +97,7 @@ def save_repos_to_csv(repos):
         writer.writerows(repos)
 
 if __name__ == "__main__":
-    users = get_users_in_basel()
+    users = get_users_in_mumbai()
     save_users_to_csv(users)
 
     all_repos = []
